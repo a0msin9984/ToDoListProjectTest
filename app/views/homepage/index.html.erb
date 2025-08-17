@@ -1,0 +1,61 @@
+<div class="grid grid-cols-3 gap-20 justify-center items-center">
+  <div class="p-[3px] rounded-2xl bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200">
+    <!-- ด้านใน -->
+    <div class="grid grid-rows-3 gap-4 w-full h-130 bg-white rounded-2xl">
+      <div class="w-full h-50 flex justify-center mt-16">
+        <div class="w-50 h-50 bg-amber-500 rounded-full flex items-center justify-center overflow-hidden">
+          <%= image_tag "Aomsin.png", alt: "profile_pic", class: "w-full h-full object-cover" %>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center row-span-2 mt-10">
+        <p class="font-medium text-xl">Thanaphat Satitkunrus</p>
+        <p class="font-normal text-lg">a0msIn | cafeine Team</p>
+        <!-- ปุ่ม -->
+        <button class="relative inline-flex items-center justify-center p-0.5 mt-4 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200">
+          <span class="relative flex items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent group-hover:text-white">
+            <%= image_tag "taunt_36dp_E3E3E3_FILL0_wght400_GRAD0_opsz40 1.svg", 
+              alt: "create_class_btn", 
+              class: "w-7 h-7 transition group-hover:filter group-hover:brightness-0 group-hover:invert" %>
+            <span class="font-normal text-lg">My Brag Document</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-2 w-full h-150">
+    <p class="font-medium text-4xl mt-8 ml-10 mb-10">| My Academy Quest</p>
+    <div class="w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border border-gray-300 flex items-center px-4">
+      <!-- วงกลมเล็ก -->
+      <div class="w-15 h-15 bg-white rounded-full border border-gray-300 flex items-center justify-center">
+      </div>
+      <!-- ข้อความ -->
+      <p class="font-normal text-xl ml-4">To Do List Project Test</p>
+      <!-- ปุ่มปิด -->
+      <%= image_tag "close-x.svg", 
+        alt: "cancel_btn", 
+        class: "ml-auto w-8 h-8 opacity-40 hover:opacity-100 transition" %>
+    </div>
+    <div class="w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border border-amber-300 flex items-center px-4">
+      <!-- วงกลมเล็ก -->
+      <div class="w-15 h-15 bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 rounded-full flex items-center justify-center">
+        <%= image_tag "check-mark-ok-accept-svgrepo-com.svg", 
+      alt: "check_btn", 
+      class: "w-10 h-10 filter invert brightness-0" %>
+      </div>
+      <!-- ข้อความ -->
+      <p class="font-normal text-xl ml-4">To Do List Project Test</p>
+      <!-- ปุ่มปิด -->
+      <%= image_tag "close-x.svg", 
+      alt: "cancel_btn", 
+      class: "ml-auto w-8 h-8 opacity-40 hover:opacity-100 transition" %>
+    </div>
+    <div class="fixed bottom-26 ml-20 w-150 h-20 bg-white rounded-full shadow-lg shadow-amber-500/20 border border-amber-300 flex items-center">
+      <input type="text" 
+           placeholder="Add your Quest here"
+           class="flex-grow bg-transparent outline-none text-gray-500 placeholder-gray-400 text-xl ml-8" />
+      <div class="w-20 h-20 bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 rounded-full flex items-center justify-center ml-4">
+        <%= image_tag "check-mark-ok-accept-svgrepo-com.svg", alt: "check_btn", class: "w-10 h-10 filter invert brightness-0" %>
+      </div>
+    </div>
+  </div>
+</div>
