@@ -24,17 +24,24 @@
   </div>
   <div class="col-span-2 w-full h-150">
     <p class="font-medium text-4xl mt-8 ml-10 mb-10">| My Academy Quest</p>
-    <div class="w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border border-gray-300 flex items-center px-4">
-      <!-- วงกลมเล็ก -->
-      <div class="w-15 h-15 bg-white rounded-full border border-gray-300 flex items-center justify-center">
+
+    <% @tasks.each do |task| %>
+      <div class="w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border border-gray-300 flex items-center justify-between px-6">
+        <!-- วงกลมเล็ก -->
+        <div class="w-15 h-15 bg-white rounded-full border border-gray-300 flex items-center justify-center"></div>
+        <!-- ข้อความ -->
+        <p class="font-normal text-xl ml-4 flex-grow"><%= task.title %></p>
+        <!-- ปุ่มปิด -->
+        <%= button_to task_path(task), 
+    method: :delete, 
+    remote: true, 
+    data: { confirm: "Are you sure?" }, 
+    class: "p-0 bg-transparent border-0 hover:bg-gray-200 rounded-full flex items-center" do %>
+          <%= image_tag "close-x.svg", alt: "cancel_btn", class: "w-8 h-8 opacity-40 hover:opacity-100 transition" %>
+        <% end %>
       </div>
-      <!-- ข้อความ -->
-      <p class="font-normal text-xl ml-4">To Do List Project Test</p>
-      <!-- ปุ่มปิด -->
-      <%= image_tag "close-x.svg", 
-        alt: "cancel_btn", 
-        class: "ml-auto w-8 h-8 opacity-40 hover:opacity-100 transition" %>
-    </div>
+    <% end %>
+
     <div class="w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border border-amber-300 flex items-center px-4">
       <!-- วงกลมเล็ก -->
       <div class="w-15 h-15 bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 rounded-full flex items-center justify-center">
@@ -49,13 +56,27 @@
       alt: "cancel_btn", 
       class: "ml-auto w-8 h-8 opacity-40 hover:opacity-100 transition" %>
     </div>
-    <div class="fixed bottom-26 ml-20 w-150 h-20 bg-white rounded-full shadow-lg shadow-amber-500/20 border border-amber-300 flex items-center">
-      <input type="text" 
-           placeholder="Add your Quest here"
-           class="flex-grow bg-transparent outline-none text-gray-500 placeholder-gray-400 text-xl ml-8" />
-      <div class="w-20 h-20 bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 rounded-full flex items-center justify-center ml-4">
-        <%= image_tag "check-mark-ok-accept-svgrepo-com.svg", alt: "check_btn", class: "w-10 h-10 filter invert brightness-0" %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+    <% if @task && @task.errors.any? %>
+      <div class="text-red-600">
+        <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
+    <% end %>
+    <%= form_with model: @task, url: root_path, method: :post, local: true do |form| %>
+      <div class="fixed bottom-26 ml-20 w-150 h-20 bg-white rounded-full shadow-lg shadow-amber-500/20 border border-amber-300 flex items-center">
+        <%= form.text_field :title, 
+      placeholder: "Add your Quest here",
+      class: "flex-grow bg-transparent outline-none text-gray-500 placeholder-gray-400 text-xl ml-8" %>
+        <button type="submit" class="w-20 h-20 bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 rounded-full flex items-center justify-center ml-4">
+          <%= image_tag "send_36dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.svg", alt: "check_btn", class: "w-14 h-14 filter invert brightness-0" %>
+        </button>
+      </div>
+    <% end %>
   </div>
 </div>
