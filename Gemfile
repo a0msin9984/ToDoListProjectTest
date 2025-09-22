@@ -37,7 +37,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 gem "tailwindcss-rails"
-gem "sqlite3", "~> 1.4", group: [:development, :test]
+gem "sqlite3", "~> 2.7", group: [:development, :test]
 gem "pg", ">= 1.2", "< 2.0", group: :production
 
 
